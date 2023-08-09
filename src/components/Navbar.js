@@ -1,13 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Link } from "react-router-dom";
 
-export class Navbar extends Component {
-
-  render() {
+const Navbar = (props) => {
 
     return (
       <div>
-        <nav className={`navbar navbar-expand-lg bg-${this.props.Mode} navbar-${this.props.Mode}   `}>
+        <nav className={`navbar fixed-top navbar-expand-lg bg-${props.Mode} navbar-${props.Mode}   `}>
           <div className="container-fluid">
             <Link className="navbar-brand" to="/">CurrentBuzz</Link>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,16 +21,16 @@ export class Navbar extends Component {
                 <li className="nav-item"><Link className="nav-link" to="/sports">sports</Link></li>
                 <li className="nav-item"><Link className="nav-link" to="/technology">technology</Link></li>
               </ul>
-            <div className={`form-check form-switch text-${this.props.Mode === 'light' ? 'dark' : 'light'}`}>
-              <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onClick={this.props.handleMode} />
-              <label className="form-check-label" htmlFor="flexSwitchCheckDefault" >{this.props.Mode === 'light' ? 'Dark mode' : 'Light mode'}</label>
+            <div className={`form-check form-switch text-${props.Mode === 'light' ? 'dark' : 'light'}`}>
+              <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onClick={props.handleMode} />
+              <label className="form-check-label" htmlFor="flexSwitchCheckDefault" >{props.Mode === 'light' ? 'Dark mode' : 'Light mode'}</label>
             </div>
             </div>
           </div>
         </nav>
       </div>
     )
-  }
+  
 }
 
 export default Navbar
